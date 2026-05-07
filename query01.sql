@@ -22,6 +22,5 @@ inner join census.blockgroups_2020 as bg
 inner join census.population_2020 as pop
     on bg.geoid = right(pop.geoid, 12)
 group by stops.stop_id, stops.stop_name
-order by estimated_pop_800m desc
+order by estimated_pop_800m desc, stops.stop_id desc
 limit 8
-

@@ -24,6 +24,5 @@ inner join census.population_2020 as pop
 where bg.geoid like '42101%'
 group by stops.stop_id, stops.stop_name
 having sum(pop.total) > 500
-order by estimated_pop_800m asc
+order by estimated_pop_800m asc, stops.stop_id asc
 limit 8
-

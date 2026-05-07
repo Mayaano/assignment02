@@ -27,12 +27,12 @@ neighborhood_stats as (
 
 select
     neighborhood_name,
+    num_bus_stops_accessible,
+    num_bus_stops_inaccessible,
     round(
         num_bus_stops_accessible::numeric
         / nullif(total_stops, 0),
         2
-    ) as accessibility_metric,
-    num_bus_stops_accessible,
-    num_bus_stops_inaccessible
+    ) as accessibility_metric
 from neighborhood_stats
 order by accessibility_metric desc
